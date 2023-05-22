@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/container.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body class="body">
+
+    <div class="container">
+        <form class="form js-form">
+            <fieldset class="form__fieldset">
+                <legend class="form__legend">Kalkulator walut</legend>
+                <p>Wybierz walutę:</p>
+                <ul class="form__list">
+                    <li class="form__item">
+                        <label>
+                            <input type="radio" class="js-EUR" name="currency" required> <span
+                                class="form__currency">Euro
+                                (EUR)</span>
+                        </label>
+                    </li>
+                    <li class="form__item">
+                        <label>
+                            <input type="radio" class="js-USD" name="currency"> <span
+                                class="form__currency">Dolar
+                                amerykański (USD)</span>
+                        </label>
+                    </li>
+                    <li class="form__item">
+                        <label>
+                            <input type="radio" class="js-CHF" name="currency"> <span
+                                class="form__currency">Frank
+                                Szwajcarski (CHF)</span>
+                        </label>
+                    </li>
+                    <li class="form__item">
+                        <label>
+                            <input type="radio" class="js-GBP" name="currency"> <span
+                                class="form__currency">Funt
+                                brytyjski (GBP)</span>
+                        </label>
+                    </li>
+
+                </ul>
+                <p>
+                    <label>
+                        <span class="form__labelText">Aktualny kurs (PLN)*: </span><input
+                            class="form__field js-exchangeRate" name="exchangeRate" readonly>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <span class="form__labelText">Kwota <span class="js-rateChoice"></span>: </span><input
+                            class="form__field js-amount" type="number" name="amount" step="0.01" min="0.00"
+                            placeholder="Tutaj  wpisz kwotę w wybranej walucie" required>
+                    </label>
+                </p>
+                <p class="form__paragraph">
+                    <button class="form__button">Oblicz</button>
+                </p>
+                <p class="form__paragraph form__paragraph--result">Podana kwota w wybranej walucie wynosi: <strong
+                        class="js-result"></strong>
+                </p>
+            </fieldset>
+            <p class="form__warning">*Kurs z dnia 15.05.2023r.</p>
+        </form>
+
+    </div>
+
+
+
+</body>
+
+</html>
