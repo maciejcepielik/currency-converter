@@ -1,52 +1,63 @@
-let formElement = document.querySelector(".js-form");
-let eurElement = document.querySelector(".js-EUR");
-let usdElement = document.querySelector(".js-USD");
-let chfElement = document.querySelector(".js-CHF");
-let gbpElement = document.querySelector(".js-GBP");
-let exchangeRateElement = document.querySelector(".js-exchangeRate");
-let amountElement = document.querySelector(".js-amount");
-let resultElement = document.querySelector(".js-result");
-let rateChoiceElement = document.querySelector(".js-rateChoice");
+{
+    const exchangeRateElement = document.querySelector(".js-exchangeRate");
+    const resultElement = document.querySelector(".js-result");
+    const rateChoiceElement = document.querySelector(".js-rateChoice");
 
-let rateEUR = 4.51;
-let rateUSD = 4.15;
-let rateCHF = 4.62;
-let rateGBP = 5.18;
+    const inputElementEUR = () => {
+        const rateEUR = 4.51;
+        exchangeRateElement.value = rateEUR;
+        rateChoiceElement.innerText = "(EUR)";
+        resultElement.innerText = "";
+    }
 
+    const inputElementUSD = () => {
+        const rateUSD = 4.15;
+        exchangeRateElement.value = rateUSD;
+        rateChoiceElement.innerText = "(USD)";
+        resultElement.innerText = "";
+    }
 
-eurElement.addEventListener("input", () => {
-    exchangeRateElement.value = rateEUR;
-    rateChoiceElement.innerText = "(EUR)";
-    resultElement.innerText = "";
-});
+    const inputElementCHF = () => {
+        const rateCHF = 4.62;
+        exchangeRateElement.value = rateCHF;
+        rateChoiceElement.innerText = "(CHF)";
+        resultElement.innerText = "";
+    }
 
-usdElement.addEventListener("input", () => {
-    exchangeRateElement.value = rateUSD;
-    rateChoiceElement.innerText = "(USD)";
-    resultElement.innerText = "";
-});
+    const inputElementGBP = () => {
+        const rateGBP = 5.18;
+        exchangeRateElement.value = rateGBP;
+        rateChoiceElement.innerText = "(GBP)";
+        resultElement.innerText = "";
+    }
 
-chfElement.addEventListener("input", () => {
-    exchangeRateElement.value = rateCHF;
-    rateChoiceElement.innerText = "(CHF)";
-    resultElement.innerText = "";
-});
+    const currentResultText = (result) => {
+        resultElement.innerText = `${result.toFixed(2)} PLN`;
+    }
 
-gbpElement.addEventListener("input", () => {
-    exchangeRateElement.value = rateGBP;
-    rateChoiceElement.innerText = "(GBP)";
-    resultElement.innerText = "";
-});
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
+        const amountElement = document.querySelector(".js-amount");
+        const result = exchangeRateElement.value * amountElement.value
 
+        currentResultText(result);
+    }
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+    const init = () => {
+        const eurElement = document.querySelector(".js-EUR");
+        const usdElement = document.querySelector(".js-USD");
+        const chfElement = document.querySelector(".js-CHF");
+        const gbpElement = document.querySelector(".js-GBP");
+        const formElement = document.querySelector(".js-form");
 
-    let amount = amountElement.value
+        eurElement.addEventListener("input", inputElementEUR);
+        usdElement.addEventListener("input", inputElementUSD);
+        chfElement.addEventListener("input", inputElementCHF);
+        gbpElement.addEventListener("input", inputElementGBP);
 
-    let result = exchangeRateElement.value * amount
+        formElement.addEventListener("submit", onFormSubmit);
+    }
 
-    resultElement.innerText = `${result.toFixed(2)} PLN`;
-
-});
+    init();
+}
