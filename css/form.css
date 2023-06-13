@@ -1,3 +1,9 @@
+.form {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .form__fieldset {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
@@ -46,13 +52,11 @@
 
 .form__paragraph {
     text-align: center;
-
 }
 
 .form__paragraph--result {
     font-weight: bold;
     font-size: 18px;
-
 }
 
 .form__field {
