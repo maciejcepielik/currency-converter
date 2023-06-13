@@ -3,7 +3,7 @@
 ![Coin](images/coin.png)
 
 ## Description
-You can convert one of the selected currencies to PLN.
+Convert one of the selected currencies to PLN.
 
 ## Demo
 
