@@ -3,31 +3,9 @@
     const resultElement = document.querySelector(".js-result");
     const rateChoiceElement = document.querySelector(".js-rateChoice");
 
-    const inputElementEUR = () => {
-        const rateEUR = 4.51;
-        exchangeRateElement.value = rateEUR;
-        rateChoiceElement.innerText = "(EUR)";
-        resultElement.innerText = "";
-    }
-
-    const inputElementUSD = () => {
-        const rateUSD = 4.15;
-        exchangeRateElement.value = rateUSD;
-        rateChoiceElement.innerText = "(USD)";
-        resultElement.innerText = "";
-    }
-
-    const inputElementCHF = () => {
-        const rateCHF = 4.62;
-        exchangeRateElement.value = rateCHF;
-        rateChoiceElement.innerText = "(CHF)";
-        resultElement.innerText = "";
-    }
-
-    const inputElementGBP = () => {
-        const rateGBP = 5.18;
-        exchangeRateElement.value = rateGBP;
-        rateChoiceElement.innerText = "(GBP)";
+    const changeCurrentCurrency = (name, rate) => {
+        exchangeRateElement.value = rate;
+        rateChoiceElement.innerText = name;
         resultElement.innerText = "";
     }
 
@@ -51,10 +29,18 @@
         const gbpElement = document.querySelector(".js-GBP");
         const formElement = document.querySelector(".js-form");
 
-        eurElement.addEventListener("input", inputElementEUR);
-        usdElement.addEventListener("input", inputElementUSD);
-        chfElement.addEventListener("input", inputElementCHF);
-        gbpElement.addEventListener("input", inputElementGBP);
+        eurElement.addEventListener("input", () => {
+            changeCurrentCurrency("(EUR)", 4.51)
+        });
+        usdElement.addEventListener("input", () => {
+            changeCurrentCurrency("(USD)", 4.15)
+        });
+        chfElement.addEventListener("input", () => {
+            changeCurrentCurrency("(CHF)", 4.62)
+        });
+        gbpElement.addEventListener("input", () => {
+            changeCurrentCurrency("(GBP)", 5.18)
+        });
 
         formElement.addEventListener("submit", onFormSubmit);
     }
